@@ -1,0 +1,2 @@
+,hash,hash_count Folder_1,unique_folders Folder_1,unique_file_names Folder_1,unique_folders_count Folder_1,unique_file_names_count Folder_1,hash_countFolder_2,unique_foldersFolder_2,unique_file_namesFolder_2,unique_folders_countFolder_2,unique_file_names_countFolder_2,_merge
+1,9f2464dd1426bf4dbbd2208ddef699b1,2.0,"{'Examples/Folder_1/Subfolder_A', 'Examples/Folder_1/Subfolder_B'}",{'File_dup.txt'},2.0,1.0,,,,,,left_only

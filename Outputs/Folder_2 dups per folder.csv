@@ -1,0 +1,2 @@
+hash,hash_count,unique_folders,unique_file_names,unique_folders_count,unique_file_names_count
+95c93a3d8425fed7183e8e02b2e17e2f,2,"{'Examples/Folder_2', 'Examples/Folder_2/Subfolder_B'}","{'File_original_renamed.txt', 'File_original.txt'}",2,2

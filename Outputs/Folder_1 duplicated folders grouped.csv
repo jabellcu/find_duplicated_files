@@ -1,0 +1,2 @@
+unique_folders,unique_folders_count,file_names,unique_hashes_sum
+"('Examples/Folder_1/Subfolder_A', 'Examples/Folder_1/Subfolder_B')",2,"['File_dup.txt', 'File_unique.txt']",3

@@ -1,0 +1,8 @@
+,file,hash,hash_count,folder,file_name,file_name_count
+0,Examples/Folder_1/.DS_Store,653d465bbc3b37afc99f027aa69906e1,1,Examples/Folder_1,.DS_Store,1
+1,Examples/Folder_1/Example.txt,b1f9acdd0d8359b76b9ec90764487e8c,1,Examples/Folder_1,Example.txt,1
+2,Examples/Folder_1/Subfolder_A/File_unique.txt,32eb3b4e12b3c6cab2e7ae00321677ff,1,Examples/Folder_1/Subfolder_A,File_unique.txt,2
+3,Examples/Folder_1/Subfolder_A/File_dup.txt,9f2464dd1426bf4dbbd2208ddef699b1,2,Examples/Folder_1/Subfolder_A,File_dup.txt,2
+4,Examples/Folder_1/Subfolder_A/File_unique only in F1.txt,ac84f0d63b45ed067f5fe2ab14cf0546,1,Examples/Folder_1/Subfolder_A,File_unique only in F1.txt,1
+5,Examples/Folder_1/Subfolder_B/File_unique.txt,5ba5f2e2e33c0b2e442a65477a10d153,1,Examples/Folder_1/Subfolder_B,File_unique.txt,2
+6,Examples/Folder_1/Subfolder_B/File_dup.txt,9f2464dd1426bf4dbbd2208ddef699b1,2,Examples/Folder_1/Subfolder_B,File_dup.txt,2

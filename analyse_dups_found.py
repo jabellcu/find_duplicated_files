@@ -39,7 +39,7 @@ def _(source_file):
 
 @app.cell
 def _(file_data, terms_excluded_from_files, terms_excluded_from_folders):
-    file_data_grouped = group_hashes(file_data, terms_excluded_from_folders, terms_excluded_from_files)
+    file_data_grouped = group_hashes(file_data, terms_excluded_from_folders, terms_excluded_from_files, minimum_duplicates=1)
     file_data_grouped
     return (file_data_grouped,)
 

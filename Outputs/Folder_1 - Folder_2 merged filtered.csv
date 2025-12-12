@@ -1,2 +1,6 @@
 ,hash,hash_count Folder_1,unique_folders Folder_1,unique_file_names Folder_1,unique_folders_count Folder_1,unique_file_names_count Folder_1,hash_countFolder_2,unique_foldersFolder_2,unique_file_namesFolder_2,unique_folders_countFolder_2,unique_file_names_countFolder_2,_merge
-1,9f2464dd1426bf4dbbd2208ddef699b1,2.0,"{'Examples/Folder_1/Subfolder_A', 'Examples/Folder_1/Subfolder_B'}",{'File_dup.txt'},2.0,1.0,,,,,,left_only
+0,32eb3b4e12b3c6cab2e7ae00321677ff,1.0,{'Examples/Folder_1/Subfolder_A'},{'File_unique.txt'},1.0,1.0,,,,,,left_only
+1,5ba5f2e2e33c0b2e442a65477a10d153,1.0,{'Examples/Folder_1/Subfolder_B'},{'File_unique.txt'},1.0,1.0,,,,,,left_only
+4,9f2464dd1426bf4dbbd2208ddef699b1,2.0,"{'Examples/Folder_1/Subfolder_B', 'Examples/Folder_1/Subfolder_A'}",{'File_dup.txt'},2.0,1.0,1.0,{'Examples/Folder_2/Subfolder_B'},{'File_dup.txt'},1.0,1.0,both
+5,ac84f0d63b45ed067f5fe2ab14cf0546,1.0,{'Examples/Folder_1/Subfolder_A'},{'File_unique only in F1.txt'},1.0,1.0,,,,,,left_only
+6,b1f9acdd0d8359b76b9ec90764487e8c,1.0,{'Examples/Folder_1'},{'Example.txt'},1.0,1.0,1.0,{'Examples/Folder_2'},{'Example.txt'},1.0,1.0,both

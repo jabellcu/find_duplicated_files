@@ -55,8 +55,8 @@ def _(
     terms_excluded_from_files,
     terms_excluded_from_folders,
 ):
-    file1_data_grouped = group_hashes(file1_data, terms_excluded_from_folders, terms_excluded_from_files).reset_index()
-    file2_data_grouped = group_hashes(file2_data, terms_excluded_from_folders, terms_excluded_from_files).reset_index()
+    file1_data_grouped = group_hashes(file1_data, terms_excluded_from_folders, terms_excluded_from_files, minimum_duplicates=0).reset_index()
+    file2_data_grouped = group_hashes(file2_data, terms_excluded_from_folders, terms_excluded_from_files, minimum_duplicates=0).reset_index()
     return file1_data_grouped, file2_data_grouped
 
 

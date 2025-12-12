@@ -1,1 +1,4 @@
 unique_folders Folder_1,unique_file_names Folder_1,unique_file_names Folder_1 count
+Examples/Folder_1,{'Example.txt'},1
+"Examples/Folder_1/Subfolder_B
+Examples/Folder_1/Subfolder_A",{'File_dup.txt'},1

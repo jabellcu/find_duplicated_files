@@ -130,10 +130,15 @@ def _():
 @app.function
 def group_hashes(file_data: pd.DataFrame,
                  terms_excluded_from_folders: list = None,
-                 terms_excluded_from_files: list = None):
-    '''Groups file data (file paths and hashes) by hash to identify where each unique content (i.e. hash) is stored.'''
+                 terms_excluded_from_files: list = None,
+                 minimum_duplicates = 0):
+    '''Groups file data (file paths and hashes) by hash to identify where each unique content (i.e. hash) is stored.
+    terms_excluded_from_folders - filter out folders including any of these terms.
+    terms_excluded_from_files - filter out files including any of these terms.
+    minimum_duplicates - filter out files with less duplicates. e.g. 0 will include al files, even if they are not duplicated. 1 will filter out files without duplicates.
+    '''
 
-    filtered = file_data.loc[file_data['hash_count'] > 1]
+    filtered = file_data.loc[file_data['hash_count'] > minimum_duplicates]
 
     if terms_excluded_from_folders:
         terms_excluded_from_folders_mask = ~filtered['folder'].astype(str).str.contains('|'.join(terms_excluded_from_folders), case=False, na=False)
@@ -155,7 +160,7 @@ def group_hashes(file_data: pd.DataFrame,
 
 @app.cell
 def _(file_data, terms_excluded_from_files, terms_excluded_from_folders):
-    file_data_grouped = group_hashes(file_data, terms_excluded_from_folders, terms_excluded_from_files)
+    file_data_grouped = group_hashes(file_data, terms_excluded_from_folders, terms_excluded_from_files, minimum_duplicates=1)
     file_data_grouped
     return (file_data_grouped,)
 
@@ -165,7 +170,7 @@ def duplicates_per_folder(file_data: pd.DataFrame,
                  terms_excluded_from_folders: list = None,
                  terms_excluded_from_files: list = None):
     '''Groups file_data by hash, and then by unique_folders. This makes it easy to identify folders sharing duplicated files. Each row is a list of folders sharing a list of files.'''
-    file_data_grouped = group_hashes(file_data, terms_excluded_from_folders, terms_excluded_from_files)
+    file_data_grouped = group_hashes(file_data, terms_excluded_from_folders, terms_excluded_from_files, minimum_duplicates=1)
     file_data_grouped['unique_folders'] = file_data_grouped['unique_folders'].map('\n'.join)  # Allows using it for grouping
     dups_per_folder = file_data_grouped.groupby('unique_folders').agg({'unique_file_names': lambda S: set.union(*S.values) })
     dups_per_folder = dups_per_folder.rename(columns={'unique_file_names': 'shared_duplicates'})

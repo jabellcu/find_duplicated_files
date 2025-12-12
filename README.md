@@ -20,14 +20,14 @@ None needed. Just download the code or clone the repo.
 
 The .py files are just `marimo` notebooks. Open them with `marimo`:
 
-    `$ marimo edit find_dups.py`
+    $ marimo edit find_dups.py
 
 I recommend using `uv` to get all dependencies:
 
-    `$ uv run marimo edit find_dups.py`
+    $ uv run marimo edit find_dups.py
 
 Inside the notebook just set the variables as you need. They are all on top, at the beginning. By default, the notebook will use one of the examples provided:
 
-    `source_folder = Path(r'./Examples/Folder_1/')`
+    source_folder = Path(r'./Examples/Folder_1/')
 
 You can then do the same with the rest of the notebooks. Results will be stored on folder 'Outputs' by default.

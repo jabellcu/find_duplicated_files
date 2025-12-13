@@ -28,13 +28,14 @@ def _():
 @app.cell
 def _():
     TARGET_EXTENSION = '.txt'  # Focus on these files, filter out everything else
-    return (TARGET_EXTENSION,)
+    ext_name = TARGET_EXTENSION[1:]  # Avoid the dot in output file names
+    return TARGET_EXTENSION, ext_name
 
 
 @app.cell
 def _():
-    source_file_1 = Path(r'./Outputs/Folder_1.csv')  # Reference folder
-    source_file_2 = Path(r'./Outputs/Folder_2.csv')
+    source_file_1 = Path(r'./Outputs/Folder_1 md5.csv')  # Reference folder
+    source_file_2 = Path(r'./Outputs/Folder_2 md5.csv')
 
     output_folder = Path('Outputs')
     if not output_folder.exists(): output_folder.mkdir(parents=True)
@@ -99,6 +100,7 @@ def _(file_data_merged_filtered, source_file_1):
 @app.cell
 def _(
     common_folders,
+    ext_name,
     file_data_merged_filtered,
     missing_folders,
     output_folder,
@@ -106,13 +108,13 @@ def _(
     source_file_2,
 ):
     # Output
-    file_data_merged_filtered_ofp = output_folder / f'{source_file_1.stem} - {source_file_2.stem} merged filtered.csv'
+    file_data_merged_filtered_ofp = output_folder / f'{source_file_1.stem} - {source_file_2.stem} merged filtered {ext_name}.csv'
     file_data_merged_filtered.to_csv(file_data_merged_filtered_ofp)
 
-    missing_folders_ofp = output_folder / f'{source_file_1.stem} - {source_file_2.stem} missing folders.csv'
+    missing_folders_ofp = output_folder / f'{source_file_1.stem} - {source_file_2.stem} missing folders {ext_name}.csv'
     missing_folders.to_csv(missing_folders_ofp)
 
-    common_folders_ofp = output_folder / f'{source_file_1.stem} - {source_file_2.stem} common folders.csv'
+    common_folders_ofp = output_folder / f'{source_file_1.stem} - {source_file_2.stem} common folders {ext_name}.csv'
     common_folders.to_csv(common_folders_ofp)
     return
 

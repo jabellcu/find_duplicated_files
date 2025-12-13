@@ -1,0 +1,3 @@
+unique_folders Folder_1 md5,unique_file_names Folder_1 md5,unique_file_names Folder_1 md5 count
+Examples/Folder_1/Subfolder_A,"{'File_unique only in F1.txt', 'File_unique.txt'}",2
+Examples/Folder_1/Subfolder_B,{'File_unique.txt'},1

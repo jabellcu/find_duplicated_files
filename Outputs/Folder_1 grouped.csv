@@ -1,2 +1,0 @@
-hash,hash_count,unique_folders,unique_file_names,unique_folders_count,unique_file_names_count
-9f2464dd1426bf4dbbd2208ddef699b1,2,"{'Examples/Folder_1/Subfolder_A', 'Examples/Folder_1/Subfolder_B'}",{'File_dup.txt'},2,1

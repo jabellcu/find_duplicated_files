@@ -32,6 +32,14 @@ def terms_excluded():
 
 @app.cell
 def _():
+    hash_algorithm = 'md5'
+    #hash_algorithm = 'xxh128'  # xxh128 is very fast, but has collisions with similar pictures
+    # Actually, xxh128 might be useful to identify similar pictures.
+    return (hash_algorithm,)
+
+
+@app.cell
+def _():
     #source_files = source_folder.glob('*.*')
     #source_files = [fp for fp in source_files if fp.is_file()]
     return
@@ -107,8 +115,8 @@ def find_duplicates(folder_path, hash_digest='md5'):
 
 
 @app.cell
-def _(source_folder):
-    file_data = find_duplicates(source_folder)
+def _(hash_algorithm, source_folder):
+    file_data = find_duplicates(source_folder, hash_algorithm)
     #file_data
     return (file_data,)
 
@@ -259,20 +267,21 @@ def _(
     file_data,
     file_data_grouped,
     file_data_multiple_loc_grouped,
+    hash_algorithm,
     output_folder,
     source_folder,
 ):
     # Output
-    file_data_ofp = output_folder / f'{source_folder.stem}.csv'
+    file_data_ofp = output_folder / f'{source_folder.stem} {hash_algorithm}.csv'
     file_data.to_csv(file_data_ofp)
 
-    file_data_grouped_ofp = output_folder / f'{source_folder.stem} grouped.csv'
+    file_data_grouped_ofp = output_folder / f'{source_folder.stem} {hash_algorithm} grouped.csv'
     file_data_grouped.to_csv(file_data_grouped_ofp)
 
-    file_data_grouped_ofp = output_folder / f'{source_folder.stem} dups per folder.csv'
+    file_data_grouped_ofp = output_folder / f'{source_folder.stem} {hash_algorithm} dups per folder.csv'
     file_data_grouped.to_csv(file_data_grouped_ofp)
 
-    file_data_multiple_loc_grouped_ofp = output_folder / f'{source_folder.stem} duplicated folders grouped.csv'
+    file_data_multiple_loc_grouped_ofp = output_folder / f'{source_folder.stem} {hash_algorithm} duplicated folders grouped.csv'
     file_data_multiple_loc_grouped.to_csv(file_data_multiple_loc_grouped_ofp)
     return
 

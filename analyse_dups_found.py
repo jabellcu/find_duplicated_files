@@ -48,7 +48,7 @@ def _(file_data, terms_excluded_from_files, terms_excluded_from_folders):
 def _(file_data, terms_excluded_from_files, terms_excluded_from_folders):
     dups_per_folder = duplicates_per_folder(file_data, terms_excluded_from_folders, terms_excluded_from_files)
     dups_per_folder
-    return
+    return (dups_per_folder,)
 
 
 @app.cell
@@ -73,12 +73,17 @@ def _():
 
 
 @app.cell
-def _(file_data_grouped, file_data_multiple_loc_grouped, source_file):
+def _(
+    dups_per_folder,
+    file_data_grouped,
+    file_data_multiple_loc_grouped,
+    source_file,
+):
     file_data_grouped_ofp = source_file.with_name(f'{source_file.stem} grouped.csv')
     file_data_grouped.to_csv(file_data_grouped_ofp)
 
-    file_data_grouped_ofp = source_file.with_name(f'{source_file.stem} dups per folder.csv')
-    file_data_grouped.to_csv(file_data_grouped_ofp)
+    dups_per_folder_ofp = source_file.with_name(f'{source_file.stem} dups per folder.csv')
+    dups_per_folder.to_csv(dups_per_folder_ofp)
 
     file_data_multiple_loc_grouped_ofp = source_file.with_name(f'{source_file.stem} duplicated folders grouped.csv')
     file_data_multiple_loc_grouped.to_csv(file_data_multiple_loc_grouped_ofp)

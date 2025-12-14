@@ -190,7 +190,7 @@ def duplicates_per_folder(file_data: pd.DataFrame,
 def _(file_data, terms_excluded_from_files, terms_excluded_from_folders):
     dups_per_folder = duplicates_per_folder(file_data, terms_excluded_from_folders, terms_excluded_from_files)
     dups_per_folder
-    return
+    return (dups_per_folder,)
 
 
 @app.function
@@ -264,6 +264,7 @@ def _():
 
 @app.cell
 def _(
+    dups_per_folder,
     file_data,
     file_data_grouped,
     file_data_multiple_loc_grouped,
@@ -278,8 +279,8 @@ def _(
     file_data_grouped_ofp = output_folder / f'{source_folder.stem} {hash_algorithm} grouped.csv'
     file_data_grouped.to_csv(file_data_grouped_ofp)
 
-    file_data_grouped_ofp = output_folder / f'{source_folder.stem} {hash_algorithm} dups per folder.csv'
-    file_data_grouped.to_csv(file_data_grouped_ofp)
+    dups_per_folder_ofp = output_folder / f'{source_folder.stem} {hash_algorithm} dups per folder.csv'
+    dups_per_folder.to_csv(dups_per_folder_ofp)
 
     file_data_multiple_loc_grouped_ofp = output_folder / f'{source_folder.stem} {hash_algorithm} duplicated folders grouped.csv'
     file_data_multiple_loc_grouped.to_csv(file_data_multiple_loc_grouped_ofp)
